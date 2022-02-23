@@ -38,13 +38,15 @@ Output:
 */
 
 export function getAverageCoolFactor(customers) {
-    return true;
+    const average = customers.reduce((accumulator, item) => accumulator + item.cool_factor / customers.length, 0);
+
+    return average;
 }
 
 /* 
 Output: 
 {
-    female: 4,
+    female: 4,e
     male: 3,
     nonbinary: 2,
     etc . . .
