@@ -61,7 +61,6 @@ export function getTotalOfEachGender(customers) {
             accumulator[customer.gender]++;
 
         } else {
-            
             accumulator[customer.gender] = 1;
         }
 
@@ -82,7 +81,23 @@ Output:
 */
 
 export function getGenderBreakdownOfFordOwners(customers) {
-    return true;
+    const fordOwners = customers.filter(customer => customer.car_make === 'Ford');
+
+    const genderHashMap = fordOwners.reduce((accumulator, customer) => {
+        
+        if(accumulator[customer.gender]) {
+
+            accumulator[customer.gender]++;
+
+        } else {
+
+            accumulator[customer.gender] = 1;
+        }
+
+        return accumulator;
+    }, {});
+
+    return genderHashMap;
 }
 
 //////////////////////////////////////////////////////////
